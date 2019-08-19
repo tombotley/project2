@@ -8,9 +8,13 @@ Screencast presentation: https://youtu.be/Yn0854JfYwQ
 <br/><br/>
 
 **Objectives**
+
 •	Create a Slack style chat application using Flask and Socket.IO
+
 •	Learn to use JavaScript to run code server-side.
+
 •	Become more comfortable with building web user interfaces.
+
 •	Gain experience with Socket.IO to communicate between clients and servers.
 
 <br/><br/>
