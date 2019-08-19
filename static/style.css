@@ -1,0 +1,269 @@
+/* custom scrollbar styling */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: darkcyan;
+}
+
+/* standard page styles */
+
+body {
+    height: 100vh;
+    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+    cursor: default;
+    background-color: #00246bff;
+}
+
+h4 {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+/* page container grid */
+
+#page_container {
+    display: grid;
+    grid-template-columns: 280px auto;
+    grid-template-rows: 120px auto;
+    grid-template-areas:
+        "header header"
+        "info view";
+    background-color: #00246bff;
+}
+
+/* page header styling */
+
+#page_header {
+    display: grid;
+    justify-content: space-between;
+    grid-template-areas:
+        "display brand";
+    grid-template-columns: 280px auto;
+    grid-area: header;
+    background-color: white;
+    color: #00246bff;
+    border-bottom: 1px solid #00246bff;
+}
+
+#display_info {
+    grid-area: display;
+    padding: 20px;
+}
+
+#display_form {
+    background-color: #00FFFF;
+    border-radius: 0 0 15px 15px;
+}
+
+.modal-header {
+    color: #00246bff;
+}
+
+.modal-footer {
+    background-color: #00246bff;
+}
+
+#cancel_change {
+    padding: 0;
+    border-style: none;
+    color: #00246bff;
+}
+
+#display_error {
+    padding-left: 10px;
+    white-space: nowrap;
+    color: darkcyan;
+}
+
+#user_display {
+    color: darkcyan;
+}
+
+#brand {
+    grid-area: brand;
+    padding: 20px;
+    min-width: 400px;
+    font-family: 'Aclonica', sans-serif;
+    font-weight: extra-bold;
+    text-align: right;
+}
+
+#header_logo {
+    height: 80px;
+}
+
+/* channel info div styling */
+
+#channel_info {
+    display: grid;
+    grid-template-areas:
+        "create"
+        "live";
+    grid-template-rows: 190px auto;
+    grid-area: info;
+    background-color: #00246bff;
+    color: white;
+    padding: 20px;
+}
+
+#create_chan {
+    grid-area: create;
+    border-bottom: 1px solid #00FFFF;
+}
+
+#channel_error {
+    padding: 10px;
+    text-align: center;
+}
+
+#live_chan {
+    grid-area: live;
+    padding-top: 20px;
+}
+
+#channel_list {
+    height: 480px;
+    overflow-y: auto;
+}
+
+#channel_list > p {
+    cursor: pointer;
+    color: white;
+    max-width: 220px;
+}
+
+#channel_list > p:hover {
+    color: darkcyan;
+}
+
+#channel_list > p:onclick {
+    background-color: white;
+}
+
+/* channel view div styling */
+
+#channel_view {
+    display: grid;
+    grid-template-areas:
+        "channel"
+        "send";
+    grid-template-rows: auto 100px;
+    grid-area: view;
+    background-color: #00FFFF;
+    color: #00246bff;
+    padding: 20px;
+    min-width: 520px;
+    border-bottom-left-radius: 10px;
+}
+
+#channel {
+    grid-area: channel;
+}
+
+#channel_name {
+    color: darkcyan;
+}
+
+#send {
+    grid-area: send;
+    margin-top: 5px;
+}
+
+#send span {
+    font-size: 1.2em;
+    margin: 0 auto;
+}
+
+#chat {
+    display: flex;
+    flex-direction: column-reverse;
+    max-height: 570px;
+    min-height: 0;
+    min-width: 0;
+    margin-top: 10px;
+    overflow-y: auto;
+}
+
+#messages > div {
+    background-color: white;
+    border: 1px solid #00246bff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 5px;
+    max-width: 70%;
+    min-width: 200px;
+    float: left;
+    clear: both;
+    animation-name: appear;
+    animation-duration: 0.5s;
+}
+
+#messages .my_message {
+    float: right;
+    margin-right: 5px;
+    background-color: #FAEBD7;
+}
+
+#messages .announce {
+    float: none;
+    border-style: none;
+    background-color: #00FFFF;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#messages p, span {
+    margin-bottom: 0;
+}
+
+#messages .user {
+    font-weight: bold;
+}
+
+#messages .stamp {
+    color: darkcyan;
+    font-style: italic;
+    font-size: 0.75em;
+}
+
+#input_message {
+    border-style: solid;
+    border-color: #00246bff;
+}
+
+/* temporary fix for firefox flexbox/column-reverse issue */
+
+@-moz-document url-prefix() {
+    #chat {
+        flex-direction: column;
+    }
+}
+
+/* css animation for messages */
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
