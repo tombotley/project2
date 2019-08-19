@@ -16,16 +16,22 @@ Screencast presentation: https://youtu.be/Yn0854JfYwQ
 •	Become more comfortable with building web user interfaces.
 
 •	Gain experience with Socket.IO to communicate between clients and servers.
-
 <br/><br/>
 
 **Requirements**
+
 •	Prompt new visitors for a display name, which will be associated with all messages the user sends and should be rememebered when a user returns to the app.
+
 •	Any user should be able to create a new channel, so long as its name doesn’t conflict with the name of an existing channel.
+
 •	Users should be able to see a list of all current channels, and selecting one should allow the user to view the channel. 
+
 •	Once a channel is selected, the user should see any messages that have already been sent in that channel, up to a maximum of 100 messages. Your app should only store the 100 most recent messages per channel in server-side memory.
+
 •	Once in a channel, users should be able to send text messages to others the channel. When a user sends a message, their display name and the timestamp of the message should be associated with the message. All users in the channel should then see the new message (with display name and timestamp) appear on their channel page. Sending and receiving messages should NOT require reloading the page.
+
 •	If a user is on a channel page, closes the web browser window, and goes back to your web application, your application should remember what channel the user was on previously and take the user back to that channel.
+
 •	Add at least one additional feature to your chat application of your choosing. I have chosen to add a feature allowing users to share files with their current channel.
 <br/><br/>
 
