@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>TomChat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Aclonica&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="page_container">
+      <!-- enter display name modal -->
+      <div class="modal fade" id="modalDisplayForm" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Choose your display name</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form id="display_form" onsubmit="return false">
+              <div class="modal-body mx-3">
+                <div class="md-form">
+                  <input id="input_display" class="form-control" type="text" maxlength="20" placeholder="enter a display name" autofocus>
+                  <p id="display_error"></p>
+                </div>
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button id="submit_display" class="btn btn-secondary">Begin chatting!</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- page header with current user display name, option to set/change display, and brand logo -->
+      <div id="page_header">
+        <div id="display_info">
+          <div id="welcome">
+            <p>Online as: <span id="user_display"></span></p>
+            <button id="set_display" class="btn btn-secondary" data-toggle="modal" data-target="#modalDisplayForm">Set Display</button>
+          </div>
+        </div>
+        <div id="brand">
+          <h1>TomChat<img id="header_logo" src="/static/tomchat_logo.svg"></h1>
+        </div>
+      </div>
+
+      <!-- channel info menu with create channel form and join channel list -->
+      <div id="channel_info">
+        <div id="create_chan">
+          <h4>Create channel</h4>
+          <form id="channel_form" onsubmit="return false">
+            <input id="input_channel" class="form-control" type="text" autocomplete="off" maxlength="15" placeholder="enter a channel name">
+            <button id="submit_channel" class="btn btn-secondary">Create</button>
+            <p id="channel_error"></p>
+          </form>
+        </div>
+        <div id="live_chan">
+          <h4>Join channel</h4>
+          <div id="channel_list">
+            {% if channels %}
+              {% for channel in channels %}
+                <p class="join" data-chan="{{ channel }}">{{ channel }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- channel view displays current channel name, channel messages and contains send message and send file forms -->
+      <div id="channel_view">
+        <div id="channel">
+          <h4>Connected to: <span id="channel_name"></span></h4>
+          <div id="chat">
+            <div id="messages">
+            </div>
+          </div>
+        </div>
+        <div id="send">
+          <form id="message_form" onsubmit="return false">
+            <input id="input_message" class="form-control" type="text" autocomplete="off" placeholder="enter message">
+            <button id="send_message" class="btn btn-secondary">Send</button>
+            <div class="form-group float-right">
+              <span>Share file:</span>
+			  <input type="file" id="file_input" class="btn btn-secondary">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
